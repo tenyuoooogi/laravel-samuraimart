@@ -1,3 +1,9 @@
+## category
+- 今回は、複数ある商品を一つのカテゴリで参照する形になっているので、belongsToを使用しています。
+- 1つのカテゴリーには複数の商品が紐づくので、hasManyを指定しています。
+[rink](https://terakoya.sejuku.net/programs/92/chapters/1154)
+## view
+また、第二引数にはコントローラからビューに渡す変数を指定します。その際によく使われるのがcompact関数です。上記のようにcompact('products')と記述すると、変数$productsがビューに渡されます。
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

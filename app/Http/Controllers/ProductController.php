@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ProductContoroller extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ProductContoroller extends Controller
     {
         $products = Product::all();
 
-        return view('products.index',compart('products'));
+        return view('products.index',compact('products'));
     }
 
     /**

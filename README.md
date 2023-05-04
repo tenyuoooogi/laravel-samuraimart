@@ -4,6 +4,37 @@
 [rink](https://terakoya.sejuku.net/programs/92/chapters/1154)
 ## view
 また、第二引数にはコントローラからビューに渡す変数を指定します。その際によく使われるのがcompact関数です。上記のようにcompact('products')と記述すると、変数$productsがビューに渡されます。
+
+Node.jsを一言でいうと、サーバーサイドのJavaScript実行環境である
+## npm
+npmはNode.jsのパッケージ管理システムである
+本教材ではLaravelにBootstrapを導入するときにnpmを利用する
+##　投稿一覧
+投稿一覧ページはCRUDのうち、Read（読み取り）に該当する機能です。PHPのforeach文を使い、投稿日時が新しい順に表示させます。
+## 作成機能
+データの作成機能はCRUDのうち、Create（作成）に該当する機能です。以下のように、「投稿」ボタンを押すと投稿データが追加され、そのあと投稿一覧ページにリダイレクトするようにします。
+## 投稿詳細ページ
+投稿詳細ページはCRUDのうち、Read（読み取り）に該当する機能です。投稿一覧ページの「詳細」ボタンを押すことで遷移するようにします。
+## 投稿編集ページ
+投稿編集ページでは、以下のような入力フォームを作成します。新規投稿ページとは異なり、編集前のデータを初期値に設定します。
+## 更新機能
+データの更新機能はCRUDのうち、Update（更新）に該当する機能です。以下のように、「更新」ボタンを押すと投稿データが更新され、そのあと投稿詳細ページにリダイレクトするようにします。
+## 削除機能
+データの削除機能はCRUDのうち、Delete（削除）に該当する機能です。以下のように、「削除」ボタンを押すと投稿データが削除されるようにします。
+
+## namespace
+電話帳にあらかじめ「東京都／侍太郎」「大阪府／侍太郎」と登録することで識別できるようにします。この「東京都」や「大阪府」の部分がnamespace（名前空間）です。
+## use宣言
+そのファイル内ではRequestと記述するだけでRequestクラスを呼び出せるようになります。
+## ヘルパー
+「助っ人」の意。Laravelにおいて好きな場所から呼び出せる便利な関数のこと。ヘルパー関数とも呼ばれる
+- routeヘルパー
+名前付きルートを呼び出すにはLaravelのroute()ヘルパーを使う
+名前付きルートでリンクを設定しておくことで、URLを変更した場合でもコードを書き換える必要がなくなる
+-
+-
+## hasfactory
+HasFactoryはテスト用のデータ（ダミーデータ）を大量に作成するためのメソッドを提供するトレイト
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

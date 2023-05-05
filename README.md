@@ -35,6 +35,54 @@ npmはNode.jsのパッケージ管理システムである
 -
 ## hasfactory
 HasFactoryはテスト用のデータ（ダミーデータ）を大量に作成するためのメソッドを提供するトレイト
+## インスタンス化
+インスタンス化とは、オブジェクト指向のプログラミングにおいて、インスタンス（クラスを基にした実際の値としてのデータ）を生成することである。 通常、インスタンスはクラスと対比して使用される。 例えば「名前、身長、体重」というクラスがあるとすれば、そのインスタンスは「佐藤、170、60」というよう風にして作られる。
+## セッション
+withとsession
+with()メソッドは以下のように第1引数にキー、第2引数に値を指定することで、セッションにそのデータを保存できます。
+return redirect()->route('posts.index')->with('flash_message', '投稿が完了しました。');
+
+複数のリクエストにわたって一時的にデータを保存する仕組みのこと。セッションを利用すれば、ページを移動してもデータを保持できる
+## GET
+「このページの情報をください」
+ページの表示（index、create、show、editアクション）
+## POST
+「このデータを送るので受け取ってください」
+データの作成（storeアクション）
+## PUT/PATCH（PUT：全体的な更新　PATCH：部分的な更新）
+「この新しいデータで置き換えてください」
+データの更新（updateアクション）
+## DELETE
+「このデータを削除してください」
+データの削除（destroyアクション）
+## Route::resource('posts', PostController::class);
+## action属性?
+[samurai](https://terakoya.sejuku.net/programs/87/chapters/1048)
+## ディレクティブ
+Laravelのビュー内では@ifや@foreachのように@（アットマーク）をつけるだけで、簡単にPHPやLaravelの処理を実行することができる。
+このように@（アットマーク）から始まるコードのことを、Laravelではディレクティブといい、ディレクティブは英語にするとdirectiveで、「命令」という意味
+## compact?
+compact()関数＝引数に渡された変数とその値から配列を作成し、戻り値として返す関数
+https://inouelog.com/php-compact/
+## route id
+{post}の部分に入るidはどのように判定するのかというと、route()ヘルパーの第2引数にPostモデルのインスタンスを指定するだけです。
+<a href="{{ route('posts.show', $post) }}">詳細</a>
+
+## routeヘルパー
+https://www.larajapan.com/2020/09/19/route%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC/
+
+
+
+
+### ターミナルコマンド
+投稿の全データを取得するには、以下のようにモデルのall()メソッドを使う
+$posts = Post::all();l
+
+
+
+ postsテーブルの全データを新しい順で取得する
+$posts = Post::latest()->get();
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

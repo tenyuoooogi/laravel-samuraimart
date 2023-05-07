@@ -30,9 +30,11 @@ npmはNode.jsのパッケージ管理システムである
 「助っ人」の意。Laravelにおいて好きな場所から呼び出せる便利な関数のこと。ヘルパー関数とも呼ばれる
 - routeヘルパー
 名前付きルートを呼び出すにはLaravelのroute()ヘルパーを使う
-名前付きルートでリンクを設定しておくことで、URLを変更した場合でもコードを書き換える必要がなくなる
--
--
+名前付きルートでリンクを設定しておくことで、URLを変更した場合でもコードを書き換える必要がなくなる。
+-　OLDヘルパー
+old()ヘルパーの引数にフォームのname属性の値を指定することで、そのフォームの直前の入力値を取得してくれます。
+例　<input type="text" name="title" value="{{ old('title') }}">
+
 ## hasfactory
 HasFactoryはテスト用のデータ（ダミーデータ）を大量に作成するためのメソッドを提供するトレイト
 ## インスタンス化
@@ -82,7 +84,16 @@ $posts = Post::all();l
 
  postsテーブルの全データを新しい順で取得する
 $posts = Post::latest()->get();
+php -f 実行
+php -r引数にコードを指定して実行？
+https://terakoya.sejuku.net/programs/87/chapters/1051
 
+## ＠yield
+　@yieldを記述することでその箇所を個別のコードに置き換えてくれます。例えばtitle要素の中身はページごとに異なるので、以下のように@yieldを使います。
+## migration
+「マイグレーション＝データベースに接続してテーブルを作成したりカラムを変更したりすること」という認識でOKです。
+## https://terakoya.sejuku.net/programs/88/chapters/1060
+hasmany belongsTo
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

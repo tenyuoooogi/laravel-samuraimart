@@ -1,3 +1,28 @@
+## 6章
+asset関数
+ディレクトリ配下のファイルにアクセスできる
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## category
 - 今回は、複数ある商品を一つのカテゴリで参照する形になっているので、belongsToを使用しています。
 - 1つのカテゴリーには複数の商品が紐づくので、hasManyを指定しています。
@@ -60,6 +85,10 @@ return redirect()->route('posts.index')->with('flash_message', '投稿が完了�
 ## Route::resource('posts', PostController::class);
 ## action属性?
 [samurai](https://terakoya.sejuku.net/programs/87/chapters/1048)
+
+
+
+
 ## ディレクティブ
 Laravelのビュー内では@ifや@foreachのように@（アットマーク）をつけるだけで、簡単にPHPやLaravelの処理を実行することができる。
 このように@（アットマーク）から始まるコードのことを、Laravelではディレクティブといい、ディレクティブは英語にするとdirectiveで、「命令」という意味

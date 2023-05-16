@@ -14,8 +14,10 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+   
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
- <!-- Styles -->
+    <script src="https://kit.fontawesome.com/0518871e7a.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
  <link href="{{ asset('css/samuraimart.css') }}" rel="stylesheet">
 </head>
 <body>

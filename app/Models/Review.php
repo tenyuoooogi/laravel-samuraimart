@@ -9,13 +9,13 @@ class Review extends Model
 {
     use HasFactory;
 
- public function product()
- {
-    return $this->belongTo('App\Models\Product');
- }
+    public function product()
+    {
+        return $this->belongsTo('App\Models\Product');
+    }
 
- public function users()
+ public function user()
  {
-    return $this->belongTo('App\Models\User');
+    return $this->belongsTo('App\Models\User');
  }
 }

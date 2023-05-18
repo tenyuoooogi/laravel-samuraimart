@@ -1,3 +1,44 @@
+## 4章
+https://terakoya.sejuku.net/programs/92/chapters/1153#4.4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86
+php artisan make:model Category -m
+で作成したデータベースの中に、tinkerでテーブルを作成し、その中にデータを入力できる。そのあとにtinkerでセーブすることでデータを保存することができる。
+
+シーダーとはダミーのデータや必要になる基礎データなどをまとめて作成することができる仕組
+シーダーを使えばまとめてカテゴリを入力するときなどに有効
+string関数
+プログラミングを行う中で、文字列に対して色々な操作を行うための関数
+text関数
+セルの数値を書式（表示形式）を設定して文字列として変換する関数
+##　5章
+laravelにおけるビューの実装方法
+Bladeと呼ばれるテンプレートエンジンが標準搭載されており、これを利用してビューを実装する。
+１．resources/viewsディレクトリ配下に●●●.blade.phpというファイル名でテンプレートファイルを作成する
+２．ルーティングやコントローラから作成したテンプレートファイルを呼び出す
+●●.blade.phpは基本的にHTMLと同じように記述できる
+@ifや@foreachのようにアットマークをつけることでif文やforeach文を使うこともできる
+
+## requestがわからなかったため記述
+// 入力値を全部とりだす。
+$input = $request->all();
+ 
+// これも、入力値を全部とりだすが、all()と違ってファイル関連のデータはなし
+$input = $request->input();
+ 
+// これはヘルパー。input()と同じ
+指定した入力値だけを取り出すときは、
+$input = request();
+/ 'name'の値を取り出す
+$name = $request->get('name');
+ 
+// これも、'name'の値を取り出す
+$name = $request->input('name');
+ 
+// これも、'name'の値を取り出す
+$name = $request->name;
+ 
+// これはヘルパー
+$name = request('name');
+
 ## 6章
 asset関数
 ディレクトリ配下のファイルにアクセスできる
@@ -15,17 +56,21 @@ mb-5のように、mの後にt（top）, l（left）, r（right）, b（bottom�
 
 {{ asset('img/dummy.png')}}はpublicディレクトリ内にある画像やCSSなどを読み取ったり、表示するための関数
 
+## 9章
+asset関数を使うことで、publicディレクトリ配下の画像ファイルなどにアクセスできる
+### 躓いたところ
+ブラウザにコードを入力したヘッダーの部分が反映されず、どこのコードが間違っているかを模索していたが、ヘッダーのファイルを保存していないのが原因だった。
+## 今回の失敗を踏まえて
+エラーを探す前に、まず教材を見返す、そしてその次に今やったファイルを保存し、ブラウザももう一度リロードしてみる。
+
+## 10章　レビュー機能の追加
+今回レビューを行う際にユーザーのIDも保存しています。そこでビュー側でログイン済みかどうかを判定できる@authを使っている
 
 
 
 
-
-
-
-
-
-
-
+教材を始める際にその公式を見る
+laravelの公式ページのドキュメントを確認する
 tinker
 ターミナル上でphp artisan tinker
 と入力するとブラウザを開かなくてもターミナル上で確認ができるようになる。
@@ -128,6 +173,9 @@ https://terakoya.sejuku.net/programs/87/chapters/1051
 　@yieldを記述することでその箇所を個別のコードに置き換えてくれます。例えばtitle要素の中身はページごとに異なるので、以下のように@yieldを使います。
 ## migration
 「マイグレーション＝データベースに接続してテーブルを作成したりカラムを変更したりすること」という認識でOKです。
+テーブルを貸した場合
+laravelの公式ページのドキュメントでmigrationを検索すれば出てくる
+
 ## https://terakoya.sejuku.net/programs/88/chapters/1060
 hasmany belongsTo
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>

@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-
+use Illuminate\support\Facades\Auth;
 class ProductController extends Controller
 {
     /**
@@ -106,5 +106,11 @@ class ProductController extends Controller
         $product->delete();
 
         return to_route('products.index');
+    }
+    public function favorite(Product $product)
+    {
+        Auth::user()->togglefavorite($product);
+
+        return back();
     }
 }

@@ -95,7 +95,7 @@ if($has_carriage_cost){
     $price_total += env('CARRIAGE');
 }
 
-cart::instance(Auth::user()->id)->store($count);
+Cart::instance(Auth::user()->id)->store($count);
 
 DB::table('shoppingcart')->where('instance',Auth::user()->id)
 ->where('number',null)
@@ -106,7 +106,7 @@ DB::table('shoppingcart')->where('instance',Auth::user()->id)
         'price_total' => $price_total,
         'qty' => $qty_total,
         'buy_flag'=> true,
-        'updated_at'=>date("Y/m\d H:i:s")
+        'updated_at'=>date("Y/m/d H:i:s")
     ]
     );
 

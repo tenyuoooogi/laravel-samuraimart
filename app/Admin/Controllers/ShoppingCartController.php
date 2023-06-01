@@ -30,7 +30,7 @@ class ShoppingCartController extends AdminController
         $grid->column('identifier',__('ID'))->sortable();
         $grid->column('instance', __('User ID'))->sortable();
         $grid->column('price_total', __('Price total'))->totalRow();
-        $grid->column('qty', __(Qty))->totalRow();
+        $grid->column('qty', __('Qty'))->totalRow();
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
         
@@ -47,6 +47,7 @@ class ShoppingCartController extends AdminController
             $actions->disableEdit();
             $actions->disableView();
         });
+
         return $grid;
     }
 

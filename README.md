@@ -1,3 +1,7 @@
+
+
+
+
 ## 4章
 https://terakoya.sejuku.net/programs/92/chapters/1153#4.4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86
 php artisan make:model Category -m

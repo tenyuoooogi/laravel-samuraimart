@@ -22,6 +22,7 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('shopping-carts',ShoppingCartController::class)->only('index');
     $router->post('products/import', [ProductController::class, 'csvImport']);
-
+    Route::get('users/mypage/register_card', 'register_card')->name('mypage.register_card');
+    Route::post('users/mypage/token', 'token')->name('mypage.token');
 
 });

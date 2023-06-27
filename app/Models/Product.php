@@ -19,6 +19,7 @@ class Product extends Model
         'image',
         'recommend_flag',
         'carriage_flag',
+        'review',
     ];
     public function category()
     {
@@ -27,7 +28,11 @@ class Product extends Model
 
 
     public function reviews()
+   
     {
         return $this->hasMany('App\Models\Review');
     }
+   
+  
+    
 }

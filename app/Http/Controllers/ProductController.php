@@ -14,7 +14,8 @@ class ProductController extends Controller
 {
 
 
-
+   
+      
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +26,7 @@ class ProductController extends Controller
    
     {
         $query =Review::selectRaw('product_id,AVG(score) as review')->groupBy('product_id');
+        
         if ($request->category !== null) {
             // $products = Product::where('category_id', $request->category)->sortable()->paginate(15);
             $products = Product::where('category_id', $request->category)->leftjoinSub($query, 'query', function ($join) {$join->on('id','=','query.product_id');})->sortable()->paginate(15);

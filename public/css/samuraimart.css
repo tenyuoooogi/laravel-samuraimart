@@ -220,6 +220,12 @@ label {
   background-color: #d94b0e;
 }
 
+.review-score-colors{
+  color:#b2b2b2;
+}
+
+
+
 
 
 
@@ -241,8 +247,8 @@ label {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden; 
-  white-space: nowrap; 
+  overflow: hidden;
+  white-space: nowrap;
   color: #ffcc33;
   height: 25px;
 }

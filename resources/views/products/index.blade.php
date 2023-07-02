@@ -35,15 +35,16 @@
                          <div class="col-12">
                              <p class="samuraimart-product-label mt-2">
                                  {{$product->name}}<br>
-                                 <div class="average-score mb-3">
+                            
+                                 @if ($product->review !== null)
  <div class="star-rating ml-2">
-   <div class="star-rating-front" style="width: <%= laundry.avg_score_percentage %>%">★★★★★</div>
+   <div class="star-rating-front"style="width: 10%">★★★★★ </div>
    <div class="star-rating-back">★★★★★</div>
- </div>
- <div class="average-score-display">
-   （<%= laundry.avg_score %>点）
- </div>
+   <div class="average-score-display">
 </div>
+ </div>
+ @endif
+ 
                                  <label>￥{{$product->price}}</label>
                              </p>
                          </div>

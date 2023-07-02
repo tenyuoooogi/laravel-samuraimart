@@ -1,6 +1,56 @@
+# SQLからクエリビルダに出力する方法
+https://readouble.com/laravel/9.x/ja/queries.html#basic-where-clauses
+## 上記のサイトからサブクエリのjoinを開く。そしてそこにSQLで出力した値を入れ込むことでクエリビルダに出力できる
+
+### 例↓
+- SQL
+select product_id,AVG(score),AVG(score)/5*100 as review from `reviews` group by `product_id`;
+
+- クエリビルダ
+ - $per = DB::table('reviews')->select('product_id',DB::raw('AV
+G(score),AVG(score)/5*100 as review'))->from('reviews')->group
+By('product_id');    
+
+
+- $percen = DB::table('products')->leftjoinSub($per,'per',func
+tion ($join) {$join->on('product_id','=','per.product_id');})-
+>get();   
 
 
 
+
+
+public function select(){
+    $reviews = DB::table('reviews')
+       ->join('product','reviews.product_id','=','products.product_id')
+       //->get();
+   
+       ->toSql();
+       var_dump($review); //出力
+    return view('review.list')->with('reviews',$reviews);
+    }
+       
+       
+        $grid->column('identifier',__('ID'))->sortable();
+        $grid->column('instance', __('User ID'))->sortable();
+        $grid->column('price_total', __('Price total'))->totalRow();
+        $grid->column('qty', __(Qty))->totalRow();
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
+        
+
+        $grid->filter(function($filter){
+            $filter->disableIdFilter();
+            $filter->equal('identifier','ID');
+            $filter->equal('instance', 'User ID');
+            $filter->between('created_at','登録日')->datetime();
+        });
+        $grid->disableCreateButton();
+        $grid->actions(function ($actions){
+            $actions->disableDelete();
+            $actions->disableEdit();
+            $actions->disableView();
+        });
 
 ## 4章
 https://terakoya.sejuku.net/programs/92/chapters/1153#4.4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86
@@ -100,6 +150,22 @@ default
 - ルーティングで同じコントローラ内ならグルーピングができる
 - お気に入りにもIDがあり、foreach文で繰り返し処理をすることで、お気に入りだけを表示できる。
 
+
+
+
+
+
+## 後編9章
+- qty　数量 個数
+- disable 無効にする
+- Price total 金額
+### エラーになってしまった要因
+- 大文字小文字、シングルクォーテーションのつけ忘れなどの初歩的なミス
+### 改善方法
+- できるだけブラインドタッチを心がけ、画面をよく見る
+## 学んだこと
+-disableを使うことでその操作を無効にすることができる。
+- 例disableCreateButton -> 新規作成を操作できなくなる
 
 
 

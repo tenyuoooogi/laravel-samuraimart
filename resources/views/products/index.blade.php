@@ -38,7 +38,7 @@
                             
                                  @if ($product->review !== null)
  <div class="star-rating ml-2">
-   <div class="star-rating-front"style="width: 10%">★★★★★ </div>
+   <div class="star-rating-front"style="width:{{$product->review}}% ">★★★★★</div>
    <div class="star-rating-back">★★★★★</div>
    <div class="average-score-display">
 </div>

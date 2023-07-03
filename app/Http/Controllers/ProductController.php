@@ -25,8 +25,7 @@ class ProductController extends Controller
     public function index(Request $request)
    
     {
-        $query =Review::selectRaw('product_id,AVG(score) as review')->groupBy('product_id');
-        
+        $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review')->groupBy('product_id');
         if ($request->category !== null) {
             // $products = Product::where('category_id', $request->category)->sortable()->paginate(15);
             $products = Product::where('category_id', $request->category)->leftjoinSub($query, 'query', function ($join) {$join->on('id','=','query.product_id');})->sortable()->paginate(15);

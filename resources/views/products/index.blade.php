@@ -37,18 +37,15 @@
                                  {{$product->name}}<br>
                             
                                  @if ($product->review !== null)
-                                 @foreach($avgs as $avg){
-        echo $avg . '=>' . round($avg.-1) /',';
-    } 
+
  <div class="star-rating ml-2">
     <div class=yws_star>
-   <div class="star-rating-front"style="width: {{$product->review}}%">★★★★★</div>
+   <div class="star-rating-front"style="width: {{ round($product->review,-1) }}%">★★★★★</div>
 </div>
    <div class="star-rating-back">★★★★★</div>
    <div class="average-score-display">
 </div>
  </div>
- @endforeach
  @endif
  
                                  <label>￥{{$product->price}}</label>

@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function index(Request $request)
    
     {
-    $avg = [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
+        $avgs = [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
    
         $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review')->groupBy('product_id');
         if ($request->category !== null) {
@@ -52,7 +52,7 @@ $major_categories = MajorCategory::all();
 
 
 
-return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count','avg','avgs'));
+return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count','avgs'));
         
 
    

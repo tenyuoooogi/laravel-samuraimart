@@ -37,13 +37,15 @@
                                  {{$product->name}}<br>
                             
                                  @if ($product->review !== null)
-
+                               
  <div class="star-rating ml-2">
-    <div class=yws_star>
+ 
    <div class="star-rating-front"style="width: {{ round($product->review,-1) }}%">★★★★★</div>
-</div>
+   
+   
    <div class="star-rating-back">★★★★★</div>
    <div class="average-score-display">
+   {{$product->count()}}
 </div>
  </div>
  @endif

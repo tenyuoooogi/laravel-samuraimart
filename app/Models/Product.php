@@ -20,6 +20,7 @@ class Product extends Model
         'recommend_flag',
         'carriage_flag',
         'review',
+        'count()',
     ];
     public function category()
     {

@@ -44,9 +44,7 @@
    
    
    <div class="star-rating-back">★★★★★</div>
-   <div class="average-score-display">
-   {{$product->count()}}
-</div>
+   <div class="average-score-display">{{$qwery->count()}}</div>
  </div>
  @endif
  

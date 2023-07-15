@@ -1,3 +1,8 @@
+## SQL出力一覧
+- select count(*),product_id from `reviews` group by `product_id`; 
+- ↑商品のレビュー数をカウントする
+
+
 # SQLからクエリビルダに出力する方法
 https://readouble.com/laravel/9.x/ja/queries.html#basic-where-clauses
 ## 上記のサイトからサブクエリのjoinを開く。そしてそこにSQLで出力した値を入れ込むことでクエリビルダに出力できる
@@ -11,14 +16,25 @@ select product_id,AVG(score),AVG(score)/5*100 as review from `reviews` group by 
 G(score),AVG(score)/5*100 as review'))->from('reviews')->group
 By('product_id');    
 
+  $query =Review::selectRaw('product_id,AVG(score) as review')->groupBy('product_id');
 
+({{$product->review}}%
+ 
 - $percen = DB::table('products')->leftjoinSub($per,'per',func
 tion ($join) {$join->on('product_id','=','per.product_id');})-
 >get();   
 
 
+white-space: nowrap;
 
 
+  @foreach($avgs as $avg){
+        echo $avg . '=>' . round($avg.-1) /',';
+    } 
+
+
+
+  // プロダクトテーブルにジョインしたコード$count = DB::table('products')->leftjoinSub($qwery, 'qwery', function($join) {$join->on('id','=','qwery.product_id');})
 
 public function select(){
     $reviews = DB::table('reviews')

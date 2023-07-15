@@ -26,8 +26,8 @@ class ProductController extends Controller
     public function index(Request $request)
    
     {
-        // プロダクトテーブルにジョインしたコード$count = DB::table('products')->leftjoinSub($qwery, 'qwery', function($join) {$join->on('id','=','qwery.product_id');})
-        //レビュー数をカウントで絞り込んだコード $qwery = DB::table('reviews')->select(DB::raw('count(score),product_id'))->from('reviews')->groupBy('product_id');  
+      
+        $qwery = DB::table('reviews')->select(DB::raw('count(score),product_id'))->from('reviews')->groupBy('product_id')->get();
         $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review')->groupBy('product_id');
         if ($request->category !== null) {
             // $products = Product::where('category_id', $request->category)->sortable()->paginate(15);
@@ -35,7 +35,7 @@ class ProductController extends Controller
             $total_count = Product::where('category_id', $request->category)->count();
             $category = Category::find($request->category);
             $major_category = MajorCategory::find($category->major_category_id);
-        
+            $qwery = DB::table('reviews')->select(DB::raw('count(score),product_id'))->from('reviews')->groupBy('product_id')->get();
 
         } else {
 
@@ -53,7 +53,7 @@ $major_categories = MajorCategory::all();
 
 
 
-return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count',));
+return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count','qwery'));
         
 
    
@@ -88,7 +88,7 @@ return view('products.index', compact('products', 'category', 'major_category', 
         $product->price = $request->input('price');
         $product->category_id = $request->input('category_id');
         $product->save();
-
+        
         return to_route('products.index');
     }
 
@@ -99,10 +99,13 @@ return view('products.index', compact('products', 'category', 'major_category', 
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
+   
     {
+        $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review')->groupBy('product_id');
         $reviews = $product->reviews()->get();
-  
-         return view('products.show', compact('product', 'reviews'));
+
+        $products = Product::where('category_id')->leftjoinSub($query, 'query',function ($join) {$join->on('id','=','query.product_id');});
+         return view('products.show', compact('product', 'reviews','products',));
     }
 
     /**

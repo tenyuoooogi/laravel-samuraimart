@@ -16,6 +16,13 @@
                  <h1 class="">
                      {{$product->name}}
                  </h1>
+                 <div class="star-rating ml-2">
+   <div class="star-rating-front"style="width: {{ round($product->review,-1) }}%">★★★★★</div>
+   
+   
+   <div class="star-rating-back">★★★★★</div>
+</div>
+<br>
                  <p class="">
                      {{$product->description}}
                  </p>
@@ -68,8 +75,14 @@
          <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">カスタマーレビュー</h3>
+             <div class="star-rating ml-2">
+   <div class="star-rating-front"style="width: 10%">★★★★★</div>
+   
+   
+   <div class="star-rating-back">★★★★★</div>
+</div>
          </div>
- 
+       
          <div class="offset-1 col-10">
          <div class="row">
                  @foreach($reviews as $review)

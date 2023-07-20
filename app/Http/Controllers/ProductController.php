@@ -27,15 +27,14 @@ class ProductController extends Controller
    
     {
       
-        $qwery = DB::table('reviews')->select(DB::raw('count(score),product_id'))->from('reviews')->groupBy('product_id')->get();
-        $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review')->groupBy('product_id');
+        $query = Review::selectRaw('product_id,AVG(score),AVG(score)/5*100 as review ,count(*) as count')->groupBy('product_id');
         if ($request->category !== null) {
             // $products = Product::where('category_id', $request->category)->sortable()->paginate(15);
             $products = Product::where('category_id', $request->category)->leftjoinSub($query, 'query',function ($join) {$join->on('id','=','query.product_id');})->sortable()->paginate(15);
             $total_count = Product::where('category_id', $request->category)->count();
             $category = Category::find($request->category);
             $major_category = MajorCategory::find($category->major_category_id);
-            $qwery = DB::table('reviews')->select(DB::raw('count(score),product_id'))->from('reviews')->groupBy('product_id')->get();
+           
 
         } else {
 
@@ -53,7 +52,7 @@ $major_categories = MajorCategory::all();
 
 
 
-return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count','qwery'));
+return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count',));
         
 
    

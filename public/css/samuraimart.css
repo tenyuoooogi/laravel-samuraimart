@@ -233,7 +233,9 @@ label {
 
 .average-score {
   display: flex;
-  justify-content: center;
+  width: 5em;
+  height: 1em;
+  font-size: 17px;
 }
 
 .star-rating {
